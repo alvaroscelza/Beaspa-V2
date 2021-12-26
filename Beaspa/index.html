@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Beaspa</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Beaspa">
+    <meta name="keywords" content="Beaspa, uruguay, alvaro, rodriguez, rodríguez, scelza">
+    <meta name="author" content="Ayudante de Ingeniero en Sistemas - Alvaro Andrés Rodríguez Scelza">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Design Documents .css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!--Javascript Documents .js-->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>window.jQuery = window.$ = require('jquery');</script> <!--Bug de electron, no funciona bootstrap si no se incluye jQuery así-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/imageOrientation/correctOrientation.js"></script>
+    <script src="js/imageOrientation/getCurrentOrientation.js"></script>
+    <script src="js/dataLayer/persistenceManager.js"></script>
+    <script src="js/mainWindow/buttonAddPerson.js"></script>
+    <script src="js/addPerson/allergiesDescriptionController.js"></script>
+    <script src="js/businessLayer/person.js"></script>
+    <script src="js/addPerson/addPerson.js"></script>
+    <script src="js/addPerson/goBackImage.js"></script>
+    <script src="js/mainWindow/addAestheticCenter.js"></script>
+    <script src="js/mainWindow/renderPeople.js"></script>
+    <script src="js/addPerson/loadAestheticCenters.js"></script>
+    <script src="js/mainWindow/filterPeople.js"></script>
+    <script src="js/mainWindow/loadAestheticCentersForFiltering.js"></script>
+    <script src="js/mainWindow/buttonSearchPerson.js"></script>
+    <script src="js/mainWindow/renderAestheticCenters.js"></script>
+    <script src="js/mainWindow/deleteAestheticCenter.js"></script>
+    <script src="js/mainWindow/deletePerson.js"></script>
+    <script src="js/mainWindow/buttonEditPerson.js"></script>
+    <script src="js/editPerson/editPerson.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="includerDiv" w3-include-html="mainWindow.html"></div>
+        <script>
+            w3.includeHTML(loadDataInMemoryAndRenderPeople);
+
+            function loadDataInMemoryAndRenderPeople() {
+                persistenceManager.load();
+                renderPeople(persistenceManager.people);
+            }
+        </script>
+
+        <hr />
+        <footer>
+            <p>
+                &copy;
+                <script>document.write(new Date().getFullYear())</script> - Beaspa - Versión 1.0
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>

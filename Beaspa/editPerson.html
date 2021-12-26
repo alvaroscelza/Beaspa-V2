@@ -1,0 +1,109 @@
+﻿<h1>Editar Paciente</h1>
+<hr />
+
+<img id="imgGoBack" src="img/goBack.png" height="40" width="40"
+     onclick="goBackToMainMenu();"
+     onmouseover="$(this).attr('src','img/goBackSelected.png');"
+     onmouseout="$(this).attr('src','img/goBack.png');">
+<br />
+<br />
+
+<form name="editPersonForm" onsubmit="return validateAndEditPerson()">
+    <!-- #Person ID -->
+    <input hidden type="text" name="id">
+    <!--#endregion -->
+    <!-- #region General Data -->
+    <div class="form-group">
+        <label>Nombres y Apellidos</label>
+        <input required type="text" class="form-control" name="namesAndSurnames" placeholder="Nombres y Apellidos">
+    </div>
+    <div class="form-group">
+        <label>Foto</label>
+        <input class="form-control" type="file" name="image">
+    </div>
+    <div class="form-group">
+        <label>Centros de Estética (mantener ctrl presionado para seleccionar más de uno):</label>
+        <select id="aestheticCentersSelect" name="aestheticCenters" multiple class="form-control">
+            <!--Dinamically loaded and rendered-->
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Fecha de Nacimiento</label>
+        <input type="date" class="form-control" name="birthDate">
+    </div>
+    <div class="form-group">
+        <label>CI</label>
+        <input type="number" class="form-control" name="ci" placeholder="Cédula de Identidad">
+    </div>
+    <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" class="form-control" name="address" placeholder="Dirección">
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label>Teléfono</label>
+        <input required type="tel" class="form-control" name="phone" placeholder="Teléfono">
+    </div>
+    <div class="form-group">
+        <label>Sociedad Médica</label>
+        <input type="text" class="form-control" name="medicSociety" placeholder="Sociedad Médica">
+    </div>
+    <div class="form-group">
+        <label>Emergencia Móvil</label>
+        <input type="text" class="form-control" name="mobileEmergency" placeholder="Emergencia Móvil">
+    </div>
+    <div class="form-group">
+        <label>Ocupación</label>
+        <input type="text" class="form-control" name="occupation" placeholder="Ocupación">
+    </div>
+    <div class="form-group">
+        <label>Observaciones</label>
+        <textarea class="form-control" name="observations" placeholder="Observaciones"></textarea>
+    </div>
+    <!--#endregion -->
+    <!-- #region Sicknesses -->
+    <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" name="diabetes" value="diabetes">
+        <label class="form-check-label">Diabetes</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" name="heartProblems" value="heartProblems">
+        <label class="form-check-label">Problemas Cardíacos</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" name="hypertension" value="hypertension">
+        <label class="form-check-label">Hipertensión</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" name="metallicProsthesis" value="metallicProsthesis">
+        <label class="form-check-label">Prótesis Metálicas</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" name="pacemaker" value="pacemaker">
+        <label class="form-check-label">Marcapasos</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" name="pregnancies" value="pregnancies">
+        <label class="form-check-label">Embarazos</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" name="surgeries" value="surgeries">
+        <label class="form-check-label">Cirugías</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input id="allergies" type="checkbox" class="form-check-input" name="allergies" value="allergies">
+        <label class="form-check-label">Alergias</label>
+    </div>
+    <div class="form-group" style="margin-top: 10px">
+        <label>Descripción de Alergias</label>
+        <textarea id="allergiesDescription" name="allergiesDescription" disabled class="form-control"
+                  placeholder="Marcar Alergias para hablitar." rows="4"></textarea>
+    </div>
+    <!--#endregion -->
+    <div class="clearfix">
+        <button type="submit" class="btn btn-default float-right">Guardar</button>
+    </div>
+</form>
